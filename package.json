@@ -2,7 +2,7 @@
 	"name": "better-chat-client",
 	"private": true,
 	"version": "1.0.0",
-	"description": "better-chat项目的前端部分",
+	"description": "聊天项目",
 	"type": "module",
 	"author": {
 		"name": "练志",
