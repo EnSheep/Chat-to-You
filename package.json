@@ -7,7 +7,7 @@
 	"author": {
 		"name": "练志",
 		"email": "2294122783@qq.com",
-		"url": "https://github.com/XC0703"
+		"url": "https://github.com/EnSheep/Chat-to-You"
 	},
 	"scripts": {
 		"start": "pnpm run dev",
