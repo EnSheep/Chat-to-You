@@ -11,20 +11,22 @@ const CenteredSpin = () => (
 );
 
 const RouteRender = () => {
-	// 递归地渲染路由
 	const routeRender = (router: Array<IRouter>) => {
 		return router.map(item => {
+			const { name, path, redirect, component: Component, children } = item;
+	
+			// 使用稳定唯一的key，这里假设每个item都有id属性
+			const key = item.id || item.name || item.path;
+	
+			// 优化条件渲染逻辑
+			const element = redirect ? <Navigate to={redirect} /> : <Suspense fallback={<CenteredSpin />}><Component /></Suspense>;
+	
 			return (
-				<Route
-					key={item.name || item.path}
-					path={item.path}
-					element={item.redirect ? (<Navigate to={item.redirect} />) : (<Suspense fallback={<CenteredSpin />}><item.component /></Suspense>)}>
-					{item.children && routeRender(item.children)}
+				<Route key={key} path={path} element={element}> {children && routeRender(children)}
 				</Route>
 			);
 		});
 	};
-
 	// 使用 useMemo 来记忆化 router 映射的结果，避免每次渲染都重新计算
 	const routes = useMemo(() => {
 		return routeRender(router);

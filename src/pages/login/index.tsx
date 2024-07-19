@@ -14,6 +14,9 @@ import { HttpStatus } from '@/utils/constant';
 import { generateRandomString, encrypt, decrypt } from '@/utils/encryption';
 import { tokenStorage, userStorage } from '@/utils/storage';
 
+import { Canvas } from '@react-three/fiber'
+
+
 // 记住密码 -- 主要就是将用户信息和 token 加密存储到本地
 const rememberUser = async (info: IUserInfo) => {
 	const userInfo = await encrypt(JSON.stringify(info));
