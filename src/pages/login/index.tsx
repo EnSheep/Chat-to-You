@@ -1,4 +1,3 @@
-import { Canvas } from '@react-three/fiber'
 import { Checkbox, Form, Input, Button } from 'antd';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -11,10 +10,11 @@ import { BgImage } from '@/assets/images';
 import { IUserInfo } from '@/components/ChangePerInfoModal/type';
 import ChangePwdModal from '@/components/ChangePwdModal';
 import useShowMessage from '@/hooks/useShowMessage';
+import Bananas from '@/ThreeScene/Bananas';
 import { HttpStatus } from '@/utils/constant';
 import { generateRandomString, encrypt, decrypt } from '@/utils/encryption';
 import { tokenStorage, userStorage } from '@/utils/storage';
-import Bananas from '@/ThreeScene/Bananas';
+
 
 // 记住密码 -- 主要就是将用户信息和 token 加密存储到本地
 const rememberUser = async (info: IUserInfo) => {
