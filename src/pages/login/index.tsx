@@ -1,3 +1,4 @@
+import { Canvas } from '@react-three/fiber'
 import { Checkbox, Form, Input, Button } from 'antd';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,9 +14,7 @@ import useShowMessage from '@/hooks/useShowMessage';
 import { HttpStatus } from '@/utils/constant';
 import { generateRandomString, encrypt, decrypt } from '@/utils/encryption';
 import { tokenStorage, userStorage } from '@/utils/storage';
-
-import { Canvas } from '@react-three/fiber'
-
+import Bananas from '@/ThreeScene/Bananas';
 
 // 记住密码 -- 主要就是将用户信息和 token 加密存储到本地
 const rememberUser = async (info: IUserInfo) => {
@@ -45,6 +44,8 @@ const Login = () => {
 	const [loginFormInstance] = Form.useForm<ILoginForm>();
 	const [isRemember, setIsRemember] = useState(false);
 	const [openForgetModal, setForgetModal] = useState(false);
+
+	const [speed, set] = useState(5)
 
 	// 判断本地是否有用户信息，有且是相同的用户名则无需向后台发起请求，直接登录
 	// 无则向后台发起请求，同时判断是否勾选了记住密码，勾选了则将用户信息存储到本地
@@ -117,6 +118,7 @@ const Login = () => {
 	return (
 		<>
 			<div className={styles.bgContainer} style={{ backgroundImage: `url(${BgImage})` }}>
+			<Bananas speed={speed} />
 				<div className={styles.loginContainer}>
 					<div className={styles.text}>
 						<h2>Welcome</h2>

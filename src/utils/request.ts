@@ -20,11 +20,9 @@ interface ApiResponse<T> {
 export class Request {
 	private instance: AxiosInstance;
 	private defaultConfig: AxiosRequestConfig = { baseURL: apiBaseURL, timeout: 6000 };
-
-	constructor(config: AxiosRequestConfig) {
+		constructor(config: AxiosRequestConfig) {
 		const mergedConfig = { ...this.defaultConfig, ...config }; // 使用浅拷贝
 		this.instance = axios.create(mergedConfig);//创建实例
-
 		this.instance.interceptors.request.use(//在请求前拦截获取token
 			(config: InternalAxiosRequestConfig) => {
 				const token = this.getToken(); // 使用一个独立的方法来获取 token
