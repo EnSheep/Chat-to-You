@@ -45,7 +45,7 @@ const Login = () => {
 	const [isRemember, setIsRemember] = useState(false);
 	const [openForgetModal, setForgetModal] = useState(false);
 
-	const [speed, set] = useState(5)
+	const [speed, set] = useState(1)
 
 	// 判断本地是否有用户信息，有且是相同的用户名则无需向后台发起请求，直接登录
 	// 无则向后台发起请求，同时判断是否勾选了记住密码，勾选了则将用户信息存储到本地
@@ -117,11 +117,11 @@ const Login = () => {
 	};
 	return (
 		<>
-			<div className={styles.bgContainer} style={{ backgroundImage: `url(${BgImage})` }}>
+			<div className={styles.bgContainer} >
 			<Bananas speed={speed} />
 				<div className={styles.loginContainer}>
 					<div className={styles.text}>
-						<h2>Welcome</h2>
+						<h2>登录</h2>
 					</div>
 					<Form name="loginForm" onFinish={handleSubmit} form={loginFormInstance}>
 						<Form.Item name="username" rules={[{ required: true, message: '请输入用户名' }]}>
