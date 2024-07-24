@@ -10,7 +10,7 @@ import { BgImage } from '@/assets/images';
 import { IUserInfo } from '@/components/ChangePerInfoModal/type';
 import ChangePwdModal from '@/components/ChangePwdModal';
 import useShowMessage from '@/hooks/useShowMessage';
-import Bananas from '@/ThreeScene/Bananas';
+import Astronaut from '@/ThreeScene/Astronaut';
 import { HttpStatus } from '@/utils/constant';
 import { generateRandomString, encrypt, decrypt } from '@/utils/encryption';
 import { tokenStorage, userStorage } from '@/utils/storage';
@@ -118,7 +118,7 @@ const Login = () => {
 	return (
 		<>
 			<div className={styles.bgContainer} >
-			<Bananas speed={speed} />
+			<Astronaut speed={speed} />
 				<div className={styles.loginContainer}>
 					<div className={styles.text}>
 						<h2>登录</h2>
