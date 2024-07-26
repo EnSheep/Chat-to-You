@@ -121,7 +121,7 @@ const Login = () => {
 			<Astronaut speed={speed} />
 				<div className={styles.loginContainer}>
 					<div className={styles.text}>
-						<h2>登录</h2>
+						<h4>登录</h4>
 					</div>
 					<Form name="loginForm" onFinish={handleSubmit} form={loginFormInstance}>
 						<Form.Item name="username" rules={[{ required: true, message: '请输入用户名' }]}>
@@ -137,12 +137,7 @@ const Login = () => {
 										记住密码
 									</Checkbox>
 								</div>
-								<div
-									className={styles.forgetpasTool}
-									onClick={() => {
-										handleForgetModal(true);
-									}}
-								>
+								<div className={styles.forgetpasTool} onClick={() => {handleForgetModal(true);}}>
 									忘记密码？
 								</div>
 							</div>

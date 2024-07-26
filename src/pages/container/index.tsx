@@ -98,20 +98,10 @@ const Container = () => {
 				</div>
 			</div>
 			<div className={styles.btnContainer}>
-				<Button
-					size="small"
-					onClick={() => {
-						handleForgetModal(true);
-					}}
-				>
+				<Button size="small" onClick={() => {handleForgetModal(true);}}>
 					修改密码
 				</Button>
-				<Button
-					size="small"
-					onClick={() => {
-						handleInfoModal(true);
-					}}
-				>
+				<Button size="small" onClick={() => { 	handleInfoModal(true); }}>
 					修改信息
 				</Button>
 			</div>
@@ -172,6 +162,7 @@ const Container = () => {
 		<div className={styles.parentContainer}>
 			<div className={styles.container}>
 				<div className={styles.leftContainer}>
+					{/* 左上角头像信息加载 */}
 					<Popover content={infoContent} placement="rightTop">
 						<div className={styles.avatar}>
 							<ImageLoad src={user.avatar} />

@@ -109,6 +109,7 @@ const Chat = forwardRef((props: IChatListProps, ref) => {
 		const init = async () => {
 			await refreshChatList();
 			// 如果有初始选中的聊天室，则选中且建立连接
+			debugger
 			if (initSelectedChat) {
 				// 等待获取消息列表后再进行后续操作
 				const updatedChatList = (await getChatList()).data;

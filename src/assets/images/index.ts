@@ -2,10 +2,17 @@
 export const BgImage = 'https://static.pexels.com/photos/373934/pexels-photo-373934.jpeg';
 
 // 获取当前房间内正在通话的所有人
+//因为Request没有get方法，所以打包失败暂时注释掉
+// export const getRoomMembers = async (room: string) => {
+// 	const res = await Request.get<string[]>(`rtc/room_members/?room=${room}`);
+// 	return res.data;
+// };
+
+import axios from 'axios';
 export const getRoomMembers = async (room: string) => {
-	const res = await Request.get<string[]>(`rtc/room_members/?room=${room}`);
-	return res.data;
-};
+	const res = await axios.get<string[]>(`rtc/room_members/?room=${room}`);
+	return res.data
+}
 
 
 export enum ChatImage {
