@@ -294,18 +294,9 @@ const ChatTool = (props: IChatToolProps) => {
 				<ul className={styles.leftIcons}>
 					{ChatIconList.slice(0, 3).map((item, index) => {
 						return (
-							<Tooltip
-								key={item.text}
-								placement={index === 0 ? 'top' : 'bottomLeft'}
-								title={index === 0 ? emojiList : item.text}
-								arrow={false}
-							>
-								<li
-									className={`iconfont ${item.icon}`}
-									onClick={() => {
-										handleIconClick(item.icon);
-									}}
-								></li>
+							<Tooltip key={item.text} placement={index === 0 ? 'top' : 'bottomLeft'}
+							title={index === 0 ? emojiList : item.text} arrow={false}>
+								<li className={`iconfont ${item.icon}`} onClick={() => {handleIconClick(item.icon);}}></li>
 							</Tooltip>
 						);
 					})}
@@ -314,43 +305,17 @@ const ChatTool = (props: IChatToolProps) => {
 					{ChatIconList.slice(3, 6).map(item => {
 						return (
 							<Tooltip key={item.text} placement="bottomLeft" title={item.text} arrow={false}>
-								<li
-									className={`iconfont ${item.icon}`}
-									onClick={() => {
-										handleIconClick(item.icon);
-									}}
-								></li>
+								<li className={`iconfont ${item.icon}`} onClick={() => {handleIconClick(item.icon);}}></li>
 							</Tooltip>
 						);
 					})}
 				</ul>
-				<input
-					type="file"
-					accept="image/*,video/*"
-					style={{ display: 'none' }}
-					ref={imageRef}
-					onChange={e => {
-						handleSendImageMessage(e);
-					}}
-				/>
-				<input
-					type="file"
-					accept="*"
-					style={{ display: 'none' }}
-					ref={fileRef}
-					onChange={e => {
-						handleSendFileMessage(e);
-					}}
-				/>
+				<input	type="file"	accept="image/*,video/*"	style={{ display: 'none' }}	ref={imageRef}	onChange={e => {handleSendImageMessage(e);	}}/>
+				<input	type="file"	accept="*"	style={{ display: 'none' }}	ref={fileRef}	onChange={e => {handleSendFileMessage(e);	}}/>
 			</div>
 			<div className={styles.chat_tool_input}>
 				<Spin spinning={loading} tip="正在发送中...">
-					<textarea
-						onChange={e => {
-							changeInputValue(e);
-						}}
-						value={inputValue}
-					></textarea>
+					<textarea	onChange={e => {changeInputValue(e);	}}	value={inputValue}></textarea>
 				</Spin>
 			</div>
 			<div className={styles.chat_tool_btn}>

@@ -6,16 +6,18 @@ import { handleRegister } from './api';
 import styles from './index.module.less';
 import { IRegisterForm } from './type';
 
+
 import { BgImage } from '@/assets/images';
 import { generateAvatarAPI } from '@/assets/images';
 import useShowMessage from '@/hooks/useShowMessage';
+import Astronaut from '@/ThreeScene/Astronaut';
 import { HttpStatus } from '@/utils/constant';
 
 const Register = () => {
 	const showMessage = useShowMessage();
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
-
+	const [speed, set] = useState(1)
 	const handleSubmit = async (values: IRegisterForm) => {
 		const { username, phone, password, confirm } = values;
 		if (password !== confirm) {
@@ -48,7 +50,8 @@ const Register = () => {
 	};
 	return (
 		<>
-			<div className={styles.bgContainer} style={{ backgroundImage: `url(${BgImage})` }}>
+			<div className={styles.bgContainer} >
+			<Astronaut speed={speed} />
 				<div className={styles.registerContainer}>
 					<div className={styles.text}>
 						<h2>Welcome</h2>

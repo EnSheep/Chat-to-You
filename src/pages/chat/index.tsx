@@ -109,7 +109,6 @@ const Chat = forwardRef((props: IChatListProps, ref) => {
 		const init = async () => {
 			await refreshChatList();
 			// 如果有初始选中的聊天室，则选中且建立连接
-			debugger
 			if (initSelectedChat) {
 				// 等待获取消息列表后再进行后续操作
 				const updatedChatList = (await getChatList()).data;
@@ -171,6 +170,7 @@ const Chat = forwardRef((props: IChatListProps, ref) => {
 		<>
 			<div className={styles.chatList}>
 				<div className={styles.leftContainer}>
+					{/* 查找聊天人员或群聊天记录 */}
 					<div className={styles.search}>
 						<SearchContainer />
 					</div>
@@ -179,15 +179,9 @@ const Chat = forwardRef((props: IChatListProps, ref) => {
 							<div className={styles.chat_none}> 暂无消息记录 </div>
 						) : (
 							chatList.map(item => (
-								<div
-									className={styles.chat_item}
-									key={item.room}
-									id={`chatList_${item.room}`}
-									onClick={() => chooseRoom(item)}
-									style={{
-										backgroundColor: curChatInfo?.room === item.room ? 'rgba(0, 0, 0, 0.08)' : ''
-									}}
-								>
+								<div className={styles.chat_item} key={item.room} id={`chatList_${item.room}`} 
+								onClick={() => chooseRoom(item)} 
+								style={{backgroundColor: curChatInfo?.room === item.room ? 'rgba(0, 0, 0, 0.08)' : '' }}>
 									<div className={styles.chat_avatar}>
 										<ImageLoad src={item.avatar} />
 									</div>
@@ -201,15 +195,7 @@ const Chat = forwardRef((props: IChatListProps, ref) => {
 											)}
 										</div>
 										<div className={styles.chat_message}>
-											{item.type === 'text'
-												? item.lastMessage
-												: item.type === 'image'
-													? '[图片]'
-													: item.type === 'video'
-														? '[视频]'
-														: item.type === 'file'
-															? '[文件]'
-															: null}
+											{item.type === 'text' ? item.lastMessage: item.type === 'image'? '[图片]': item.type === 'video'? '[视频]': item.type === 'file'? '[文件]' : null}
 										</div>
 									</div>
 									<div className={styles.chat_info_time}>

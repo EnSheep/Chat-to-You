@@ -9,7 +9,6 @@ import { ImageUpload } from '@/components/ImageUpload';
 import useShowMessage from '@/hooks/useShowMessage';
 import { HttpStatus } from '@/utils/constant';
 import { tokenStorage, userStorage } from '@/utils/storage';
-
 const ChangePerInfoModal = (props: IChangePerInfoModalProps) => {
 	const showMessage = useShowMessage();
 	const user = JSON.parse(userStorage.getItem());

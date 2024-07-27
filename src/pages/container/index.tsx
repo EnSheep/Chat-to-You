@@ -31,9 +31,11 @@ const Container = () => {
 	const [openInfoModal, setInfoModal] = useState(false);
 	const [openAudioModal, setAudioModal] = useState(false);
 	const [openVideoModal, setVideoModal] = useState(false);
+	
 	const socket = useRef<WebSocket | null>(null); // websocket 实例
 	const addressBookRef = useRef<IAddressBookRef>(null); // 通讯录组件实例
 	const chatRef = useRef<IChatRef>(null); // 聊天列表组件实例
+
 	const [initSelectedChat, setInitSelectedChat] = useState<IFriendInfo | IGroupChatInfo | null>(
 		null
 	); // 初始化选中的聊天对象 (只有从通讯录页面进入聊天页面时才会有值)

@@ -13,11 +13,7 @@ const ImageLoad = (props: ImageProps) => {
 	return (
 		<img
 			src={
-				src
-					? src.startsWith('http') || src.startsWith('https')
-						? `${src}`
-						: `${serverURL}${src}`
-					: `${LoadErrorImage.AVATAR}`
+				src ? src.startsWith('http') || src.startsWith('https') ? `${src}` : `${serverURL}${src}` : `${LoadErrorImage.AVATAR}`
 			}
 			onError={e => {
 				if (e.currentTarget.src !== `${LoadErrorImage.AVATAR}`) {
