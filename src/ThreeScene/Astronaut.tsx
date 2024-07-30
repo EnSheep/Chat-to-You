@@ -44,7 +44,7 @@ function Rocket({ index, z, speed }: { index: number, z: number, speed: number }
 
 export default function Rockets({ speed = 1, count = 15, depth = 40, easing = (x: number) => Math.sqrt(1 - Math.pow(x - 1, 2)) }: { speed?: number, count?: number, depth?: number, easing?: (x: number) => number }) {
   return (
-    <Canvas flat gl={{ antialias: false }} dpr={[1, 1.5]} camera={{ position: [0, 0, 10], fov: 20, near: 0.01, far: depth + 15 }}>
+    <Canvas style={{ zIndex: -999 }} flat gl={{ antialias: false }} dpr={[1, 1.5]} camera={{ position: [0, 0, 10], fov: 20, near: 0.01, far: depth + 15 }}>
       <color attach="background" args={['black']} />
       <spotLight position={[10000, 20000, 100]} penumbra={1} decay={0} intensity={3} color="white" />
       {Array.from({ length: count }, (_, i) => <Rocket key={i} index={i} z={Math.round(easing(i / count) * depth)} speed={speed} /> /* prettier-ignore */)}

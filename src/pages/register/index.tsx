@@ -9,6 +9,7 @@ import { IRegisterForm } from './type';
 
 import { BgImage } from '@/assets/images';
 import { generateAvatarAPI } from '@/assets/images';
+import BackGround from '@/components/BackGround/BackGround';
 import useShowMessage from '@/hooks/useShowMessage';
 import Astronaut from '@/ThreeScene/Astronaut';
 import { HttpStatus } from '@/utils/constant';
@@ -51,6 +52,7 @@ const Register = () => {
 	return (
 		<>
 			<div className={styles.bgContainer} >
+			<BackGround />
 			<Astronaut speed={speed} />
 				<div className={styles.registerContainer}>
 					<div className={styles.text}>

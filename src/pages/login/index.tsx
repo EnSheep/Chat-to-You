@@ -7,6 +7,7 @@ import styles from './index.module.less';
 import { ILoginForm } from './type';
 
 import { BgImage } from '@/assets/images';
+import BackGround from '@/components/BackGround/BackGround';
 import { IUserInfo } from '@/components/ChangePerInfoModal/type';
 import ChangePwdModal from '@/components/ChangePwdModal';
 import useShowMessage from '@/hooks/useShowMessage';
@@ -118,7 +119,8 @@ const Login = () => {
 	return (
 		<>
 			<div className={styles.bgContainer} >
-			<Astronaut speed={speed} />
+			<BackGround />
+			<Astronaut speed={speed}/>
 				<div className={styles.loginContainer}>
 					<div className={styles.text}>
 						<h4>登录</h4>
